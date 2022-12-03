@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("DJANFO_SECRET_KEY", "django-insecure-$v-zmj1tun3pbr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "https://food-service-v3dh.onrender.com/"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
