@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="display-3">Name: {{ dish_type_detail.name }}</h1>
+  <a style="float: right" class="btn btn-secondary" href="{% url 'restaurant:dish-type-update' dish_type_detail.pk %}">Update</a>
+  <a style="float: right; margin-right: 10px" class="btn btn-danger" href="{% url 'restaurant:dish-type-delete' dish_type_detail.pk %}">Delete</a>
+  <h3 class="display-6">Dishes:</h3>
+  <div class="m-lg-3">
+    {% for dish in dish_type_detail.dishes.all %}
+      <ul class="list">
+        <li><a style="text-decoration: none;" href="{% url 'restaurant:dish-detail' dish.pk %}">{{ dish.name }}</a></li>
+      </ul>
+    {% endfor %}
+  </div>
+{% endblock %}

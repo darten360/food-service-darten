@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="display-1">Food Service Home</h1>
+  <p class="display-6">Welcome to the best Food Service Ever!</p>
+  <div>
+    <p>The Food Service have the following record counts</p>
+    <table class="table">
+      <tr>
+        <th>Dishes: </th>
+        <td>{{ num_dishes }}</td>
+      </tr>
+      <tr>
+        <th>Dish Types: </th>
+        <td>{{ num_dish_types }}</td>
+      </tr>
+      <tr>
+        <th>Cooks: </th>
+        <td>{{ num_cooks }}</td>
+      </tr>
+    </table>
+    <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+  </div>
+{% endblock %}

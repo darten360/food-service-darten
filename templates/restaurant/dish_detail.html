@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="display-3">Name: {{ dish.name }}</h1>
+  <a style="float: right" class="btn btn-secondary" href="{% url 'restaurant:dish-update' dish.pk %}">Update</a>
+  <a style="float: right; margin-right: 10px" class="btn btn-danger" href="{% url 'restaurant:dish-delete' dish.pk %}">Delete</a>
+  <p>Description: <strong>{{ dish.description }}</strong></p>
+  <p>Price: <strong>{{ dish.price }}</strong></p>
+  <p>Dish Type: <strong><a style="color: gray; text-decoration: none" href="{% url 'restaurant:dish-type-detail' dish.dish_type.pk %}">{{ dish.dish_type }}</a></strong></p>
+  <h3 class="display-6">Cooks:</h3>
+  <div class="m-lg-3">
+    {% for cook in dish.cooks.all %}
+      <ul class="list">
+        <li>
+          <a style="text-decoration: none;" href="{% url 'restaurant:cook-detail' cook.pk %}">
+            {% if cook.first_name or cook.last_name%}
+              {{ cook.first_name }} {{ cook.last_name }} ({{ cook.username }})
+            {% else %}
+              {{ cook.username }}
+            {% endif %}
+          </a>
+        </li>
+      </ul>
+    {% endfor %}
+    
+  </div>
+{% endblock %}

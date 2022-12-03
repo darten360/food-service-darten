@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Cooks
+{% endblock %}
+{% block content %}
+  <h1 class="display-1">Cooks</h1>
+  <a style="float: right" class="btn btn-success" href="{% url 'restaurant:cook-create' %}">Create</a>
+  <div>
+  {% if cooks_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+
+      {% for cook in cooks_list %}
+        <tr>
+          <td>
+            {{ cook.id }}
+          </td>
+          <td>
+            <a style="color: black; text-decoration: none" href="{% url 'restaurant:cook-detail' cook.pk %}">
+              {% if cook.first_name and cook.last_name %}
+                {{ cook.first_name }} {{ cook.last_name }} ({{ cook.username }})
+              {% else %}
+                {{ cook.username }}
+              {% endif %}
+            </a>
+          </td>
+          <td>
+            <a style="color: gray; text-decoration: none" href="{% url 'restaurant:cook-update' cook.pk %}">Update</a>
+          </td>
+          <td>
+            <a style="margin-right: 10px; color: red; text-decoration: none" href="{% url 'restaurant:cook-delete' cook.pk %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    There are no cooks
+  {% endif %}
+  </div>
+{% endblock %}

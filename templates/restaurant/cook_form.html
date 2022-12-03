@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    {% if object %}
+        <h1 class="display-3">Update A Cook</h1>
+    {% else %}
+        <h1 class="display-3">Add New Cook</h1>
+    {% endif %}
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+{% endblock %}

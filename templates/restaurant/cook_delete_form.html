@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1 class="display-5">Delete A Cook</h1>
+    <p>Are you sure you want to delete this cook: <strong>
+      {% if cook.last_name and cook.first_name %}
+        {{ cook.first_name }} {{ cook.last_name }} ({{ cook.username }})
+      {% else %}
+        {{ cook.username }}
+      {% endif %}
+    </strong>?</p>
+    <p><i>You will lose all information about this cook!</i></p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, delete" class="btn btn-danger">
+    </form>
+{% endblock %}
