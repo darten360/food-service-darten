@@ -5,7 +5,7 @@ from restaurant.views import DishesListView, DishTypesListView, CooksListView, C
     CookUpdateView, DishDeleteView, DishTypeDeleteView, CookDeleteView, ExperienceUpdateView
 
 urlpatterns = [
-    path("catalog/", index, name="home_page"),
+    path("", index, name="home_page"),
     path("dishes/", DishesListView.as_view(), name="dish-list"),
     path("dish_types/", DishTypesListView.as_view(), name="dish-type-list"),
     path("cooks/", CooksListView.as_view(), name="cooks-list"),
