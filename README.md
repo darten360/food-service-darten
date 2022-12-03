@@ -2,7 +2,7 @@
 
 Django project for managing dishes, cooks and dish-types
 
-[Food-service project deployed to Blender](https://taxi-service-darten.herokuapp.com/)
+[Food-service project deployed to Blender](https://food-service-v3dh.onrender.com/)
 
 ## Installation
 
