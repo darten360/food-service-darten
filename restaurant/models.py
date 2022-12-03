@@ -14,8 +14,8 @@ class DishType(models.Model):
 
 
 class Cook(AbstractUser):
-    position = models.CharField(max_length=30, default="Cook")
-    years_of_experience = models.IntegerField()
+    position = models.CharField(max_length=30, default="Cook", null=True)
+    years_of_experience = models.IntegerField(null=True)
 
     class Meta:
         ordering = ["username"]
